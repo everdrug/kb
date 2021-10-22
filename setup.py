@@ -28,8 +28,7 @@ setup(name='kb-manager',
                    ],
       packages=find_packages(exclude=('tests',)),
       include_package_data=True,
-#      install_requires=["colored","toml","attr","attrs","gitpython"],
-      install_requires=open("requirements.txt", "r").read().splitlines(),
+      install_requires=["colored","toml","attr","attrs","gitpython", 'git+https://github.com/everdrug/terminal_markdown_viewer'],
       python_requires='>=3.6',
       entry_points={
            'console_scripts':[
