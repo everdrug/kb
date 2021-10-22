@@ -2,4 +2,4 @@ attrs
 colored
 toml
 gitpython
-git+https://github.com/everdrug/terminal_markdown_viewer
+git+git://github.com/everdrug/terminal_markdown_viewer.git
