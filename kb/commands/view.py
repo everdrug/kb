@@ -120,11 +120,11 @@ def view_by_id(id: int,
         sys.exit(0)
 
     # View File
-    if fs.is_text_file(artifact_path):
+    if fs.is_md_file(artifact_path):
+        opener.open_md_file(artifact_path)
+    elif fs.is_text_file(artifact_path):
         markers = get_template(artifact, config)
         viewer.view(artifact_path, markers, color=color_mode)
-    elif fs.is_md_file(artifact_path):
-        opener.open_md_file(artifact_path)
     else:
         opener.open_non_text_file(artifact_path)
 
@@ -171,11 +171,11 @@ def view_by_name(title: str,
             sys.exit(0)
 
         # View File
-        if fs.is_text_file(artifact_path):
+        if fs.is_md_file(artifact_path):
+            opener.open_md_file(artifact_path)
+        elif fs.is_text_file(artifact_path):
             markers = get_template(artifact, config)
             viewer.view(artifact_path, markers, color=color_mode)
-        elif fs.is_md_file(artifact_path):
-            opener.open_md_file(artifact_path)
         else:
             opener.open_non_text_file(artifact_path)
     elif len(artifacts) > 1:
