@@ -14,7 +14,7 @@ kb opener module
 import os
 import subprocess
 import platform
-
+import mdv
 
 def open_non_text_file(filename):
     """
@@ -26,3 +26,9 @@ def open_non_text_file(filename):
         os.startfile(filename)
     else:
         subprocess.Popen(['xdg-open', filename])
+
+def open_md_file(filename):
+    with open(filename) as f:
+        raw_md = f.read()
+    formatted = mdv.main(raw_md)
+    print(formatted)

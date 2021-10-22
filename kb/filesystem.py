@@ -197,6 +197,11 @@ def get_temp_filepath() -> str:
             tmpfilename = random_tmp_path
     return tmpfilename
 
+def is_md_file(filename: str) -> bool:
+    if os.path.splitext(filename)[1] == ".md":
+        return True
+    else: return False
+
 
 def is_text_file(filename: str) -> bool:
     """
@@ -211,7 +216,7 @@ def is_text_file(filename: str) -> bool:
     A boolean, True if the file is of type text.
     """
     txt_extensions = ("", ".conf", ".ini", ".txt",
-                      ".md", ".rst", ".ascii", ".org", ".tex")
+                      ".rst", ".ascii", ".org", ".tex")
 
     file_ext = os.path.splitext(filename)[1]
 
