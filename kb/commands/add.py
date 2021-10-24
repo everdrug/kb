@@ -140,6 +140,7 @@ def add_file_to_kb(
         sys.exit(1)
 
     if not db.is_artifact_existing(conn, title, category):
+        get_basename(fname)
         fs.copy_file(fname, Path(category_path, title))
 
     new_artifact = Artifact(

@@ -85,6 +85,7 @@ def get_basename(filename: str) -> str:
     Returns:
     The basename of the provided file
     """
+    print(Path(filename).name)
     return Path(filename).name
 
 
