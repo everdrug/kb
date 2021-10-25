@@ -133,18 +133,18 @@ def add_file_to_kb(
     category_path = Path(config["PATH_KB_DATA"], category)
     category_path.mkdir(parents=True, exist_ok=True)
     try:
-        fs.copy_file(fname, Path(category_path, fs.get_basename(fname)))
+        fs.copy_file(fname, Path(category_path, title))
     except FileNotFoundError:
         print("Error: The specified file does not exist!".format(fname=fname))
         sys.exit(1)
 
     if not db.is_artifact_existing(conn, title, category):
-        fs.copy_file(fname, Path(category_path, fs.get_basename(fname)))
+        fs.copy_file(fname, Path(category_path, title))
 
     new_artifact = Artifact(
         id=None,
         title=title, category=category,
-        path="{category}/{title}".format(category=category, title=fs.get_basename(fname)),
+        path="{category}/{title}".format(category=category, title=title),
         tags=args["tags"],
         status=args["status"], author=args["author"], template=template)
     db.insert_artifact(conn, new_artifact)
